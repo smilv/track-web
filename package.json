@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "start": "cross-env BUILD_TYPE=test webpack-dev-server --config config/webpack.config.dev.js",
+        "start": "cross-env BUILD_TYPE=dev webpack-dev-server --config config/webpack.config.dev.js",
         "build": "cross-env BUILD_TYPE=pro webpack --config config/webpack.config.prod.js"
     },
     "devDependencies": {

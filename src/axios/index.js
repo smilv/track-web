@@ -1,3 +1,4 @@
+//bin 2019/12/25
 import axios from "axios";
 const instance = axios.create();
 // axios.defaults.withCredentials = true;
@@ -19,4 +20,9 @@ instance.interceptors.response.use(
         return Promise.reject(error);
     }
 );
-export default {};
+export default {
+    //用户是否登录
+    validateUser: () => {
+        return instance.get(_apiPath + "/uc/validate-user");
+    }
+};
