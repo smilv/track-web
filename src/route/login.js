@@ -11,8 +11,6 @@ export default Comp => {
             };
         }
         componentDidMount() {
-            //选配 验证路由（全连接） 默认为当前路由
-            // let returnUrl = encodeURI(window.location.href);
             axios.validateUser().then(res => {
                 console.log(res);
                 if (res.code == 200) {
