@@ -15,12 +15,12 @@ const routerMap = [
         component: PageA
     },
     {
-        name: "跳转b",
+        name: "跳转b(登录拦截)",
         path: "/page-b",
         component: login(PageB)
     },
     {
-        name: "跳转c",
+        name: "跳转发布/订阅",
         path: "/page-c",
         component: PageC
     }
@@ -32,12 +32,11 @@ class Routes extends Component {
             <div>
                 {routerMap.map((item, key) => {
                     return (
-                        <NavLink key={key} to={item.path}>
+                        <NavLink key={key} to={item.path} style={{ padding: "10px" }}>
                             {item.name}
                         </NavLink>
                     );
                 })}
-
                 {routerMap.map((item, key) => {
                     return <Route key={key} path={item.path} exact component={item.component} />;
                 })}
