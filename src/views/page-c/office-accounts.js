@@ -18,9 +18,8 @@ const officeAccounts = {
         if (!Object.prototype.hasOwnProperty.call(this.subscribers, type)) {
             this.subscribers[type] = [];
         }
-        //将订阅着fn存在当前业务数组中
+        //将订阅者的fn存在当前业务数组中
         this.subscribers[type].push(fn);
-        console.log(this.subscribers);
     },
     //取消订阅
     unSubscribe: function(type, fn) {
