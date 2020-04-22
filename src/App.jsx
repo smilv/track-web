@@ -1,13 +1,17 @@
 import React, { Component } from "react";
-import { BrowserRouter } from "react-router-dom";
-
-import Routes from "./route/index";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import AsyncComponent from "./components/AsyncComponent";
+const Index = AsyncComponent(() => import("./views/Index"));
+const Login = AsyncComponent(() => import("./views/Login"));
 
 class App extends Component {
     render() {
         return (
             <BrowserRouter>
-                <Routes />
+                <Switch>
+                    <Route path="/login" component={Login} exact />
+                    <Route path="/" component={Index} />
+                </Switch>
             </BrowserRouter>
         );
     }
