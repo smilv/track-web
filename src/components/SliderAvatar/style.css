@@ -1,0 +1,14 @@
+.container {
+    padding: 20px;
+    text-align: center;
+}
+
+.container h3 {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.container p {
+    margin: 0 0 15px;
+}

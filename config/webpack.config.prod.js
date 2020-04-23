@@ -71,8 +71,8 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "static/css/main.[contenthash:8].css"
         }),
-        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
-        // new BundleAnalyzerPlugin()
+        new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+        new BundleAnalyzerPlugin()
     ],
     node: {
         dgram: "empty",

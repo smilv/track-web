@@ -5,8 +5,10 @@
 import React, { Component } from "react";
 import { Route, NavLink } from "react-router-dom";
 import { Layout, Menu } from "antd";
+import { HomeOutlined } from "@ant-design/icons";
 import style from "./style.css";
 import routes from "../../route";
+import SliderAvatar from "../../components/SliderAvatar";
 const { Header, Content, Sider, Footer } = Layout;
 
 class Index extends Component {
@@ -14,10 +16,12 @@ class Index extends Component {
         return (
             <Layout>
                 <Sider className={style.slider}>
+                    <SliderAvatar />
                     <Menu onClick={this.handleClick} defaultSelectedKeys="0" className={style.menu} mode="inline">
                         {routes.map((item, key) => {
                             return (
                                 <Menu.Item key={key}>
+                                    <HomeOutlined />
                                     <NavLink to={item.path}>{item.name}</NavLink>
                                 </Menu.Item>
                             );
@@ -25,13 +29,11 @@ class Index extends Component {
                     </Menu>
                 </Sider>
                 <Layout className={style.siteLayout}>
-                    <Header className={`${style.header} ${style.sitebackground}`} />
+                    <Header className={style.header} />
                     <Content className={style.content}>
-                        <div className={style.sitebackground}>
-                            {routes.map((item, key) => {
-                                return <Route key={key} path={item.path} exact component={item.component} />;
-                            })}
-                        </div>
+                        {routes.map((item, key) => {
+                            return <Route key={key} path={item.path} exact component={item.component} />;
+                        })}
                     </Content>
                     <Footer>Created by bin</Footer>
                 </Layout>
