@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    justify-content: flex-end;
+}
+.menu {
+    width: 200px;
+}
+.menu li {
+    padding: 10px 20px;
+    color: #333;
+}
+.dropdownLink {
+    color: #333;
+    cursor: pointer;
+    font-size: 16px;
+}
+.dropdownLink .name {
+    margin: 0 15px 0 10px;
+}

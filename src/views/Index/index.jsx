@@ -7,8 +7,10 @@ import { Route, NavLink } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import { HomeOutlined } from "@ant-design/icons";
 import style from "./style.css";
-import routes from "../../route";
+import route from "../../route";
 import SliderAvatar from "../../components/SliderAvatar";
+import SliderHeader from "../../components/SliderHeader";
+
 const { Header, Content, Sider, Footer } = Layout;
 
 class Index extends Component {
@@ -18,7 +20,7 @@ class Index extends Component {
                 <Sider className={style.slider}>
                     <SliderAvatar />
                     <Menu onClick={this.handleClick} defaultSelectedKeys="0" className={style.menu} mode="inline">
-                        {routes.map((item, key) => {
+                        {route.map((item, key) => {
                             return (
                                 <Menu.Item key={key}>
                                     <HomeOutlined />
@@ -29,13 +31,15 @@ class Index extends Component {
                     </Menu>
                 </Sider>
                 <Layout className={style.siteLayout}>
-                    <Header className={style.header} />
+                    <Header className={style.header}>
+                        <SliderHeader />
+                    </Header>
                     <Content className={style.content}>
-                        {routes.map((item, key) => {
+                        {route.map((item, key) => {
                             return <Route key={key} path={item.path} exact component={item.component} />;
                         })}
                     </Content>
-                    <Footer>Created by bin</Footer>
+                    <Footer style={{ textAlign: "center" }}>Created by bin</Footer>
                 </Layout>
             </Layout>
         );

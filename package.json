@@ -5,6 +5,7 @@
     },
     "devDependencies": {
         "antd": "^4.1.4",
+        "autoprefixer": "^9.7.6",
         "axios": "^0.18.0",
         "babel-core": "^6.26.3",
         "babel-loader": "^7.1.5",
@@ -30,5 +31,11 @@
         "webpack-bundle-analyzer": "^3.5.2",
         "webpack-cli": "^3.2.3",
         "webpack-dev-server": "^3.2.1"
-    }
+    },
+    "browserslist": [
+        ">1%",
+        "last 4 versions",
+        "Firefox ESR",
+        "not ie < 9"
+    ]
 }
