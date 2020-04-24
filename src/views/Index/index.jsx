@@ -14,15 +14,22 @@ import SliderHeader from "../../components/SliderHeader";
 const { Header, Content, Sider, Footer } = Layout;
 
 class Index extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            //默认选中菜单
+            current: this.props.location.pathname
+        };
+    }
     render() {
         return (
             <Layout>
                 <Sider className={style.slider}>
                     <SliderAvatar />
-                    <Menu onClick={this.handleClick} defaultSelectedKeys="0" className={style.menu} mode="inline">
+                    <Menu onClick={this.handleClick} defaultSelectedKeys={[this.state.current]} className={style.menu} mode="inline">
                         {route.map((item, key) => {
                             return (
-                                <Menu.Item key={key}>
+                                <Menu.Item key={item.path}>
                                     <HomeOutlined />
                                     <NavLink to={item.path}>{item.name}</NavLink>
                                 </Menu.Item>

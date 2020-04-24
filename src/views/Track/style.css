@@ -1,0 +1,16 @@
+.headWrapper {
+    background: white;
+    padding: 20px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.headWrapper .cho {
+    margin-right: 10px;
+}
+.charts {
+    background: white;
+    padding: 20px;
+}
+.charts .title {
+    font-size: 16px;
+}

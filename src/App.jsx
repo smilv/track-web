@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import AsyncComponent from "./components/AsyncComponent";
 const Index = AsyncComponent(() => import("./views/Index"));
 const Login = AsyncComponent(() => import("./views/Login"));
