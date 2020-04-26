@@ -1,3 +1,3 @@
 module.exports = {
-    _apiPath: '"//api.test.com"'
+    _localPath: '"//172.16.20.98:3000"'
 };

@@ -23,6 +23,10 @@ instance.interceptors.response.use(
 export default {
     //用户是否登录
     validateUser: () => {
-        return instance.get(_apiPath + "/uc/validate-user");
+        return instance.get("//sso.test.duia.com/uc/validate-user");
+    },
+    //获取统计pv/uv/ip
+    trackCount: data => {
+        return instance.post(_localPath + "/track/getCount", data);
     }
 };
