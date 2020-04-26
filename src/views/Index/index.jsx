@@ -5,7 +5,6 @@
 import React, { Component } from "react";
 import { Route, NavLink } from "react-router-dom";
 import { Layout, Menu } from "antd";
-import { HomeOutlined } from "@ant-design/icons";
 import style from "./style.css";
 import route from "../../route";
 import SliderAvatar from "../../components/SliderAvatar";
@@ -30,7 +29,7 @@ class Index extends Component {
                         {route.map((item, key) => {
                             return (
                                 <Menu.Item key={item.path}>
-                                    <HomeOutlined />
+                                    {item.icon}
                                     <NavLink to={item.path}>{item.name}</NavLink>
                                 </Menu.Item>
                             );
