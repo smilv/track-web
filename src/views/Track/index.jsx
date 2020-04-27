@@ -11,6 +11,8 @@ import echarts from "echarts/lib/echarts";
 import "echarts/lib/chart/line";
 // 引入提示框和标题组件
 import "echarts/lib/component/tooltip";
+import "echarts/lib/component/legend";
+
 import style from "./style.css";
 import axios from "../../axios";
 
@@ -28,62 +30,86 @@ const options = [
 ];
 
 class Track extends Component {
-    state = {
-        queryLoading: true //统计查询按钮状态
-    };
+    constructor() {
+        super();
+        this.state = {
+            queryLoading: true //统计查询按钮状态
+        };
+        this.year = moment().format("YYYY"); //初始当前年份
+    }
+
     componentDidMount() {
+        this.trackQuery();
+    }
+    /**
+     * 获取接口数据
+     */
+    trackQuery() {
         //获取接口数据
-        axios.trackCount({ year: 2020 }).then(response => {
+        axios.trackCount({ year: this.year }).then(response => {
             if (response.code == 200) {
-                this.setOption(response.data, "pvChart", "浏览量", "pv");
-                this.setOption(response.data, "uvChart", "独立访客", "uv");
-                this.setOption(response.data, "ipChart", "独立IP数", "ip");
+                this.setOption(response.data, [["pvChart", "浏览量", "pv"], ["uvChart", "独立访客", "uv"], ["ipChart", "独立IP数", "ip"]]);
             }
+            this.setState({ queryLoading: false });
         });
     }
     /**
      * 绘制图表
      * @param {Array} data
-     * @param {Array} domId DOM 容器
-     * @param {String} name 描述
-     * @param {String} type 类型pv、uv、ip
+     * @param {Array} chartMap
+     * @param {String} item[0] DOM 容器
+     * @param {String} item[1] 描述
+     * @param {String} item[2] 类型pv、uv、ip
      */
-    setOption(data, domId, name, type) {
-        // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById(domId));
-        // 绘制图表
-        myChart.setOption({
-            itemStyle: {
-                // 设置折线的颜色
-                color: "#1890ff"
-            },
-            tooltip: {
-                trigger: "axis"
-            },
-            dataset: {
-                // 这里指定了维度名的顺序，从而可以利用默认的维度到坐标轴的映射。
-                dimensions: ["month", type],
-                source: data
-            },
-            xAxis: {
-                type: "category"
-            },
-            yAxis: {},
-            series: [
-                {
-                    name: name,
-                    type: "line"
-                }
-            ]
+    setOption(data, chartMap) {
+        chartMap.forEach(item => {
+            // 基于准备好的dom，初始化echarts实例
+            var myChart = echarts.init(document.getElementById(item[0]));
+            // 绘制图表
+            myChart.setOption({
+                itemStyle: {
+                    // 设置折线的颜色
+                    color: "#1890ff"
+                },
+                tooltip: {
+                    trigger: "axis"
+                },
+                legend: {
+                    data: ["年份"]
+                },
+                dataset: {
+                    // 这里指定了维度名的顺序，从而可以利用默认的维度到坐标轴的映射。
+                    dimensions: ["month", item[2]],
+                    source: data
+                },
+                xAxis: {
+                    type: "category"
+                },
+                yAxis: {},
+                series: [
+                    {
+                        name: item[1],
+                        type: "line"
+                    }
+                ]
+            });
         });
-        this.setState({ queryLoading: false });
     }
     onChange = () => {};
+    /**
+     * 选择年份
+     * @param {*} value
+     * @param {*} dateString
+     */
+    yearChange = (value, dateString) => {
+        this.year = moment(value).format("YYYY");
+    };
     /**
      * 统计查询按钮
      */
     query = () => {
         this.setState({ queryLoading: true });
+        this.trackQuery();
     };
     render() {
         return (
@@ -97,11 +123,12 @@ class Track extends Component {
                                 defaultValue={["mine", "mine_index"]}
                                 onChange={this.onChange}
                                 placeholder="请选择"
+                                allowClear={false}
                             />
                         </div>
                         <div>
                             <span className={style.cho}>年度：</span>
-                            <DatePicker defaultValue={moment()} picker="year" />
+                            <DatePicker defaultValue={moment()} onChange={this.yearChange} picker="year" allowClear={false} />
                         </div>
                     </div>
                     <div>
