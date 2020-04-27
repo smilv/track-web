@@ -5,13 +5,13 @@
 import React, { Component } from "react";
 import { Cascader, Row, Col, DatePicker, Button } from "antd";
 import moment from "moment";
+import { SearchOutlined } from "@ant-design/icons";
 // 引入 ECharts 主模块
 import echarts from "echarts/lib/echarts";
 // 引入折线图
 import "echarts/lib/chart/line";
-// 引入提示框和标题组件
+// 引入提示框
 import "echarts/lib/component/tooltip";
-import "echarts/lib/component/legend";
 
 import style from "./style.css";
 import axios from "../../axios";
@@ -132,7 +132,7 @@ class Track extends Component {
                         </div>
                     </div>
                     <div>
-                        <Button type="primary" loading={this.state.queryLoading} onClick={this.query}>
+                        <Button type="primary" loading={this.state.queryLoading} onClick={this.query} icon={<SearchOutlined />}>
                             查询
                         </Button>
                     </div>
