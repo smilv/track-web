@@ -1,0 +1,11 @@
+.wrapper {
+    height: 100vh;
+    background-image: linear-gradient(to top right, #1890ff, #fb946d);
+    padding-top: 200px;
+}
+.mainBox {
+    background-color: rgba(0, 0, 0, 0.21);
+    padding: 30px;
+    width: 400px;
+    margin: 0 auto;
+}
