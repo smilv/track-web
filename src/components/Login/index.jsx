@@ -1,6 +1,9 @@
-/**
- * 登录模块
- * bin 2020/5/6
+/*
+ * @Description: 登录模块
+ * @Autor: bin
+ * @Date: 2020-05-06 14:31:33
+ * @LastEditors: bin
+ * @LastEditTime: 2020-05-06 17:52:00
  */
 import React, { Component } from "react";
 import style from "./style.css";

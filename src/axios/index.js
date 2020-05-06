@@ -1,4 +1,10 @@
-//bin 2019/12/25
+/*
+ * @Description: 接口请求
+ * @Autor: bin
+ * @Date: 2019-12-25 16:56:36
+ * @LastEditors: bin
+ * @LastEditTime: 2020-05-06 17:52:23
+ */
 import axios from "axios";
 const instance = axios.create();
 // axios.defaults.withCredentials = true;

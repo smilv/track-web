@@ -1,6 +1,9 @@
-/**
- * 主页面框架
- * bin 2020/4/22
+/*
+ * @Description: 主页面框架
+ * @Autor: bin
+ * @Date: 2020-04-22 18:22:44
+ * @LastEditors: bin
+ * @LastEditTime: 2020-05-06 17:48:30
  */
 import React, { Component } from "react";
 import { Route, NavLink } from "react-router-dom";

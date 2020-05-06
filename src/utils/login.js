@@ -1,5 +1,10 @@
-// bin 2019/12/25
-// 登录拦截
+/*
+ * @Description: 登录拦截
+ * @Autor: bin
+ * @Date: 2019-12-25 17:13:47
+ * @LastEditors: bin
+ * @LastEditTime: 2020-05-06 17:49:16
+ */
 import React, { Component } from "react";
 import axios from "../axios";
 export default Comp => {

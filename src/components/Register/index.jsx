@@ -1,6 +1,9 @@
-/**
- * 注册模块
- * bin 2020/5/6
+/*
+ * @Description: 注册模块
+ * @Autor: bin
+ * @Date: 2020-05-06 16:03:33
+ * @LastEditors: bin
+ * @LastEditTime: 2020-05-06 17:51:51
  */
 import React, { Component } from "react";
 import style from "./style.css";

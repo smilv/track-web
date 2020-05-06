@@ -1,4 +1,10 @@
-//bin 2019/12/25
+/*
+ * @Description: 路由
+ * @Autor: bin
+ * @Date: 2019-12-25 16:56:36
+ * @LastEditors: bin
+ * @LastEditTime: 2020-05-06 17:49:36
+ */
 import React from "react";
 import AsyncComponent from "../components/AsyncComponent";
 import { HomeOutlined, LineChartOutlined } from "@ant-design/icons";

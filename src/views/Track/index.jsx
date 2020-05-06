@@ -1,6 +1,9 @@
-/**
- * 统计页
- * bin 2020/4/24
+/*
+ * @Description: 统计页
+ * @Autor: bin
+ * @Date: 2020-04-24 14:01:54
+ * @LastEditors: bin
+ * @LastEditTime: 2020-05-06 17:50:24
  */
 import React, { Component } from "react";
 import { Cascader, Row, Col, DatePicker, Button } from "antd";

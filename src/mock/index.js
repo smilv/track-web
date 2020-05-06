@@ -1,4 +1,10 @@
-//bin 2019/12/25
+/*
+ * @Description:
+ * @Autor: bin
+ * @Date: 2019-12-25 16:56:36
+ * @LastEditors: bin
+ * @LastEditTime: 2020-05-06 17:50:38
+ */
 import Mock from "mockjs";
 import map from "./map";
 

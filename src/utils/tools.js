@@ -1,6 +1,9 @@
-/**
- * 工具类
- * bin 2020/4/23
+/*
+ * @Description: 工具类
+ * @Autor: bin
+ * @Date: 2019-12-25 16:56:36
+ * @LastEditors: bin
+ * @LastEditTime: 2020-05-06 17:49:42
  */
 module.exports = {
     /**

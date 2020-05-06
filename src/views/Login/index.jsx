@@ -1,6 +1,9 @@
-/**
- * 登录、注册页
- * bin 2020/4/22
+/*
+ * @Description: 登录、注册页
+ * @Autor: bin
+ * @Date: 2020-04-22 18:23:32
+ * @LastEditors: bin
+ * @LastEditTime: 2020-05-06 17:50:05
  */
 import React, { Component } from "react";
 import style from "./style.css";
@@ -11,6 +14,10 @@ class Login extends Component {
     state = {
         component: 1 //1：登录，2：注册
     };
+    /**
+     * @desc: 切换模块
+     * @param {Number} component
+     */
     switch = component => {
         this.setState({ component });
     };

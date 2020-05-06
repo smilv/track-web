@@ -1,5 +1,12 @@
+/*
+ * @Description: 顶部导航
+ * @Autor: bin
+ * @Date: 2020-04-23 15:48:38
+ * @LastEditors: bin
+ * @LastEditTime: 2020-05-06 17:51:09
+ */
 /**
- * 顶部导航
+ *
  * bin 2020/4/23
  */
 import React, { Component } from "react";
