@@ -9,3 +9,10 @@
     width: 400px;
     margin: 0 auto;
 }
+.switch {
+    color: white;
+    text-align: right;
+}
+.switch a {
+    color: white;
+}
