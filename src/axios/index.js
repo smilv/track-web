@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2019-12-25 16:56:36
  * @LastEditors: bin
- * @LastEditTime: 2020-05-06 17:52:23
+ * @LastEditTime: 2020-05-07 15:57:45
  */
 import axios from "axios";
 const instance = axios.create();
@@ -27,9 +27,9 @@ instance.interceptors.response.use(
     }
 );
 export default {
-    //用户是否登录
-    validateUser: () => {
-        return instance.get("//sso.test.duia.com/uc/validate-user");
+    //注册
+    register: data => {
+        return instance.post(_localPath + "/user/register", data);
     },
     //获取统计pv/uv/ip
     trackCount: data => {

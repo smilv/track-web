@@ -19,7 +19,7 @@ class Login extends Component {
             <div>
                 <h3 className={style.title}>登录</h3>
                 <Form name="normal_login" className="login-form" initialValues={{ remember: true }} onFinish={this.onFinish}>
-                    <Form.Item name="username" rules={[{ pattern: /^1[\d]{10}$/, required: true, message: "请输入手机号!" }]}>
+                    <Form.Item name="mobile" rules={[{ pattern: /^1[\d]{10}$/, required: true, message: "请输入手机号!" }]}>
                         <Input size="large" prefix={<UserOutlined className="site-form-item-icon" />} placeholder="手机号" />
                     </Form.Item>
                     <Form.Item
