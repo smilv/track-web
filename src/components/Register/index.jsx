@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2020-05-06 16:03:33
  * @LastEditors: bin
- * @LastEditTime: 2020-05-07 18:32:27
+ * @LastEditTime: 2020-05-08 11:31:17
  */
 import React, { Component } from "react";
 import style from "./style.css";
@@ -32,10 +32,13 @@ class Register extends Component {
             <div>
                 <h3 className={style.title}>注册</h3>
                 <Form name="normal_login" className="login-form" initialValues={{ remember: true }} onFinish={this.onFinish}>
-                    <Form.Item name="mobile" rules={[{ message: "请输入手机号!" }]}>
+                    <Form.Item name="mobile" rules={[{ pattern: /^1[\d]{10}$/, required: true, message: "请输入手机号!" }]}>
                         <Input size="large" prefix={<UserOutlined className="site-form-item-icon" />} placeholder="手机号" />
                     </Form.Item>
-                    <Form.Item name="password" rules={[{ message: "请输入数字、字母组成的6-20位密码!" }]}>
+                    <Form.Item
+                        name="password"
+                        rules={[{ pattern: /^[0-9A-Za-z]{6,20}$/, required: true, message: "请输入数字、字母组成的6-20位密码!" }]}
+                    >
                         <Input size="large" prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="密码" />
                     </Form.Item>
                     <Form.Item>
