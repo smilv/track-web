@@ -1,3 +1,10 @@
+/*
+ * @Description:
+ * @Autor: bin
+ * @Date: 2019-12-25 16:56:36
+ * @LastEditors: bin
+ * @LastEditTime: 2020-05-12 20:25:05
+ */
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
@@ -75,6 +82,7 @@ module.exports = {
         historyApiFallback: true,
         inline: true,
         hot: true,
+        // host: "172.16.20.98",
         port: 8089,
         open: true
     }

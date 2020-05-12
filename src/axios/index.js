@@ -3,11 +3,12 @@
  * @Autor: bin
  * @Date: 2019-12-25 16:56:36
  * @LastEditors: bin
- * @LastEditTime: 2020-05-07 15:57:45
+ * @LastEditTime: 2020-05-12 20:09:55
  */
 import axios from "axios";
-const instance = axios.create();
-// axios.defaults.withCredentials = true;
+const instance = axios.create({
+    withCredentials: true
+});
 //请求拦截器
 instance.interceptors.request.use(
     config => {
@@ -26,7 +27,12 @@ instance.interceptors.response.use(
         return Promise.reject(error);
     }
 );
+
 export default {
+    //登录
+    login: data => {
+        return instance.post(_localPath + "/user/login", data);
+    },
     //注册
     register: data => {
         return instance.post(_localPath + "/user/register", data);
