@@ -3,18 +3,29 @@
  * @Autor: bin
  * @Date: 2020-04-23 15:48:38
  * @LastEditors: bin
- * @LastEditTime: 2020-05-06 17:51:09
- */
-/**
- *
- * bin 2020/4/23
+ * @LastEditTime: 2020-05-13 17:09:39
  */
 import React, { Component } from "react";
 import style from "./style.css";
-import { Menu, Dropdown, Avatar } from "antd";
+import { Menu, Dropdown, Avatar, message } from "antd";
 import { DownOutlined, LogoutOutlined, SettingOutlined, UserOutlined } from "@ant-design/icons";
+import axios from "../../axios";
 
 class SliderHeader extends Component {
+    /**
+     * @description: 退出登录
+     */
+    logout = () => {
+        axios.logout().then(response => {
+            if (response.code == 200) {
+                message.success("退出成功", 1, () => {
+                    window.location.href = "/login";
+                });
+            } else {
+                message.success("退出失败");
+            }
+        });
+    };
     render() {
         const menu = (
             <Menu className={style.menu}>
@@ -22,7 +33,7 @@ class SliderHeader extends Component {
                     <SettingOutlined />
                     个人设置
                 </Menu.Item>
-                <Menu.Item>
+                <Menu.Item onClick={this.logout}>
                     <LogoutOutlined />
                     退出登录
                 </Menu.Item>
