@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2019-12-25 16:56:36
  * @LastEditors: bin
- * @LastEditTime: 2020-05-13 10:50:24
+ * @LastEditTime: 2020-05-14 15:37:12
  */
 import axios from "axios";
 const instance = axios.create({
@@ -29,6 +29,10 @@ instance.interceptors.response.use(
 );
 
 export default {
+    //获取用户信息
+    userInfo: () => {
+        return instance.post(_localPath + "/user/info");
+    },
     //登录
     login: data => {
         return instance.post(_localPath + "/user/login", data);
