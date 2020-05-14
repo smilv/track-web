@@ -3,15 +3,19 @@
  * @Autor: bin
  * @Date: 2020-05-06 14:31:33
  * @LastEditors: bin
- * @LastEditTime: 2020-05-13 18:11:31
+ * @LastEditTime: 2020-05-14 15:26:27
  */
 import React, { Component } from "react";
 import style from "./style.css";
 import { Form, Input, Button } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import axios from "../../axios";
+import regex from "../../utils/regex";
 
 class Login extends Component {
+    state = {
+        errorMsg: null //登录错误提示
+    };
     onFinish = values => {
         axios
             .login({
@@ -21,6 +25,16 @@ class Login extends Component {
             .then(response => {
                 if (response.code == 200) {
                     window.location.href = "/";
+                } else if (response.code == 5004) {
+                    //用户不存在
+                    this.setState({
+                        errorMsg: "用户不存在，请重新输入！"
+                    });
+                } else if (response.code == 5005) {
+                    //密码错误
+                    this.setState({
+                        errorMsg: "密码错误，请重新输入！"
+                    });
                 }
             });
     };
@@ -28,13 +42,14 @@ class Login extends Component {
         return (
             <div>
                 <h3 className={style.title}>登录</h3>
+                <div className={style.error}>{this.state.errorMsg}</div>
                 <Form name="normal_login" className="login-form" initialValues={{ remember: true }} onFinish={this.onFinish}>
-                    <Form.Item name="mobile" rules={[{ pattern: /^1[\d]{10}$/, required: true, message: "请输入手机号!" }]}>
+                    <Form.Item name="mobile" rules={[{ pattern: regex.mobile, required: true, message: "请输入手机号!" }]}>
                         <Input size="large" prefix={<UserOutlined className="site-form-item-icon" />} placeholder="手机号" />
                     </Form.Item>
                     <Form.Item
                         name="password"
-                        rules={[{ pattern: /^[0-9A-Za-z]{6,20}$/, required: true, message: "请输入数字、字母组成的6-20位密码!" }]}
+                        rules={[{ pattern: regex.password, required: true, message: "请输入数字、字母组成的6-20位密码!" }]}
                     >
                         <Input size="large" prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="密码" />
                     </Form.Item>

@@ -7,3 +7,11 @@
 .button {
     width: 100%;
 }
+.error {
+    line-height: 38px;
+    background-color: rgba(0, 0, 0, 0.21);
+    color: #ff4d4f;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    border-radius: 20px;
+}
