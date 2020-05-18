@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2020-04-22 18:22:44
  * @LastEditors: bin
- * @LastEditTime: 2020-05-06 17:48:30
+ * @LastEditTime: 2020-05-18 19:05:48
  */
 import React, { Component } from "react";
 import { Route, NavLink } from "react-router-dom";
@@ -25,7 +25,7 @@ class Index extends Component {
     }
     render() {
         return (
-            <Layout>
+            <Layout style={{ minHeight: "100%" }}>
                 <Sider className={style.slider}>
                     <SliderAvatar />
                     <Menu onClick={this.handleClick} defaultSelectedKeys={[this.state.current]} className={style.menu} mode="inline">
@@ -48,7 +48,7 @@ class Index extends Component {
                             return <Route key={key} path={item.path} exact component={item.component} />;
                         })}
                     </Content>
-                    <Footer style={{ textAlign: "center" }}>Created by bin</Footer>
+                    <Footer className={style.footer}>Created by bin</Footer>
                 </Layout>
             </Layout>
         );
