@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2020-04-23 15:48:38
  * @LastEditors: bin
- * @LastEditTime: 2020-05-13 17:09:39
+ * @LastEditTime: 2020-05-18 16:43:55
  */
 import React, { Component } from "react";
 import style from "./style.css";
@@ -26,10 +26,16 @@ class SliderHeader extends Component {
             }
         });
     };
+    /**
+     * @description: 跳转设置个人信息
+     */
+    toProfile = () => {
+        window.location.href = "/profile";
+    };
     render() {
         const menu = (
             <Menu className={style.menu}>
-                <Menu.Item>
+                <Menu.Item onClick={this.toProfile}>
                     <SettingOutlined />
                     个人设置
                 </Menu.Item>
@@ -44,8 +50,8 @@ class SliderHeader extends Component {
                 <div>
                     <Dropdown overlay={menu}>
                         <div className={style.dropdownLink}>
-                            <Avatar size={30} icon={<UserOutlined />} />
-                            <span className={style.name}>蒙牛乳业</span>
+                            <Avatar size={30} src={`${_tuPath}${global.state.user.avatar}`} />
+                            <span className={style.name}>{global.state.user.username}</span>
                             <DownOutlined />
                         </div>
                     </Dropdown>

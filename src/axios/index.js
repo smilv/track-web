@@ -31,22 +31,22 @@ instance.interceptors.response.use(
 export default {
     //获取用户信息
     userInfo: () => {
-        return instance.post(_localPath + "/user/info");
+        return instance.post(_apiPath + "/user/info");
     },
     //登录
     login: data => {
-        return instance.post(_localPath + "/user/login", data);
+        return instance.post(_apiPath + "/user/login", data);
     },
     //退出登录
     logout: () => {
-        return instance.post(_localPath + "/user/logout");
+        return instance.post(_apiPath + "/user/logout");
     },
     //注册
     register: data => {
-        return instance.post(_localPath + "/user/register", data);
+        return instance.post(_apiPath + "/user/register", data);
     },
     //获取统计pv/uv/ip
     trackCount: data => {
-        return instance.post(_localPath + "/track/getCount", data);
+        return instance.post(_apiPath + "/track/getCount", data);
     }
 };

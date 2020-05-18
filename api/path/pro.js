@@ -1,3 +1,11 @@
+/*
+ * @Description: 域名配置
+ * @Autor: bin
+ * @Date: 2019-12-25 16:56:36
+ * @LastEditors: bin
+ * @LastEditTime: 2020-05-18 16:14:27
+ */
 module.exports = {
-    _localPath: '"//172.16.20.98:3000"'
+    _apiPath: '"//localhost:3000"',
+    _tuPath: '"//localhost:3001"'
 };

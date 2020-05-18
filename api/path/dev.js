@@ -3,8 +3,9 @@
  * @Autor: bin
  * @Date: 2019-12-25 16:56:36
  * @LastEditors: bin
- * @LastEditTime: 2020-05-12 20:26:31
+ * @LastEditTime: 2020-05-18 16:14:14
  */
 module.exports = {
-    _localPath: '"//localhost:3000"'
+    _apiPath: '"//localhost:3000"',
+    _tuPath: '"//localhost:3001"'
 };
