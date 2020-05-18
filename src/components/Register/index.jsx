@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2020-05-06 16:03:33
  * @LastEditors: bin
- * @LastEditTime: 2020-05-14 15:27:32
+ * @LastEditTime: 2020-05-18 17:11:12
  */
 import React, { Component } from "react";
 import style from "./style.css";
@@ -41,6 +41,28 @@ class Register extends Component {
                         rules={[{ pattern: regex.password, required: true, message: "请输入数字、字母组成的6-20位密码!" }]}
                     >
                         <Input size="large" prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="密码" />
+                    </Form.Item>
+                    <Form.Item
+                        name="confirmPassword"
+                        dependencies={["password"]}
+                        rules={[
+                            { required: true, message: "请确认密码!" },
+                            ({ getFieldValue }) => ({
+                                validator(rule, value) {
+                                    if (!value || getFieldValue("password") === value) {
+                                        return Promise.resolve();
+                                    }
+                                    return Promise.reject("两次密码输入不一致!");
+                                }
+                            })
+                        ]}
+                    >
+                        <Input
+                            size="large"
+                            prefix={<LockOutlined className="site-form-item-icon" />}
+                            type="password"
+                            placeholder="确认密码"
+                        />
                     </Form.Item>
                     <Form.Item>
                         <Button type="primary" htmlType="submit" size="large" className={style.button}>
