@@ -3,11 +3,11 @@
  * @Autor: bin
  * @Date: 2020-05-06 16:03:33
  * @LastEditors: bin
- * @LastEditTime: 2020-05-18 17:11:12
+ * @LastEditTime: 2020-05-19 15:14:11
  */
 import React, { Component } from "react";
 import style from "./style.css";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, message } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import axios from "../../axios";
 import regex from "../../utils/regex";
@@ -21,18 +21,33 @@ class Register extends Component {
             })
             .then(
                 response => {
-                    console.log(response);
+                    // 注册成功去登录
+                    message.success("注册成功", 1, () => {
+                        this.login(values);
+                    });
                 },
                 error => {
                     console.log(error);
                 }
             );
     };
+    login = values => {
+        axios
+            .login({
+                mobile: values.mobile,
+                password: values.password
+            })
+            .then(response => {
+                if (response.code == 200) {
+                    window.location.href = "/";
+                }
+            });
+    };
     render() {
         return (
             <div>
                 <h3 className={style.title}>注册</h3>
-                <Form name="normal_login" className="login-form" initialValues={{ remember: true }} onFinish={this.onFinish}>
+                <Form name="normal_login" className="login-form" onFinish={this.onFinish}>
                     <Form.Item name="mobile" rules={[{ pattern: regex.mobile, required: true, message: "请输入手机号!" }]}>
                         <Input size="large" prefix={<UserOutlined className="site-form-item-icon" />} placeholder="手机号" />
                     </Form.Item>
