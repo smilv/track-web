@@ -50,8 +50,8 @@ class SliderHeader extends Component {
                 <div>
                     <Dropdown overlay={menu}>
                         <div className={style.dropdownLink}>
-                            <Avatar size={30} src={`${_tuPath}${global.state.user.avatar}`} />
-                            <span className={style.name}>{global.state.user.username}</span>
+                            {/* <Avatar size={30} src={`${_tuPath}${global.state.user.avatar}`} /> */}
+                            {/* <span className={style.name}>{global.state.user.username}</span> */}
                             <DownOutlined />
                         </div>
                     </Dropdown>

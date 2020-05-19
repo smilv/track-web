@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2020-04-23 14:18:26
  * @LastEditors: bin
- * @LastEditTime: 2020-05-18 16:27:32
+ * @LastEditTime: 2020-05-19 17:07:20
  */
 import React, { Component } from "react";
 import { Avatar } from "antd";
@@ -14,8 +14,8 @@ class SliderAvatar extends Component {
     render() {
         return (
             <div className={style.container}>
-                <Avatar size={80} src={`${_tuPath}${global.state.user.avatar}`} />
-                <h3>{global.state.user.username}</h3>
+                {/* <Avatar size={80} src={`${_tuPath}${global.state.user.avatar}`} /> */}
+                {/* <h3>{global.state.user.username}</h3> */}
                 <p>管理员</p>
             </div>
         );

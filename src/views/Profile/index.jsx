@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2020-05-18 16:38:20
  * @LastEditors: bin
- * @LastEditTime: 2020-05-19 14:56:54
+ * @LastEditTime: 2020-05-19 17:07:29
  */
 import React, { Component } from "react";
 import { Avatar, Form, Input, Button, Row, Col, DatePicker } from "antd";
@@ -19,12 +19,12 @@ class Profile extends Component {
                 <Col span={10}>
                     <Form layout="vertical" className={style.form} onFinish={this.onFinish}>
                         <Form.Item className={style.avatar}>
-                            <Avatar size={180} src={`${_tuPath}${global.state.user.avatar}`} />
+                            {/* <Avatar size={180} src={`${_tuPath}${global.state.user.avatar}`} /> */}
                         </Form.Item>
                         <Form.Item
                             name="username"
                             label="昵称"
-                            initialValue={global.state.user.username}
+                            // initialValue={global.state.user.username}
                             rules={[{ required: true, message: "请输入昵称!" }]}
                         >
                             <Input placeholder="输入昵称" />
