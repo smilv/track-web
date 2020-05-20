@@ -3,12 +3,12 @@
  * @Autor: bin
  * @Date: 2020-04-23 15:48:38
  * @LastEditors: bin
- * @LastEditTime: 2020-05-18 16:43:55
+ * @LastEditTime: 2020-05-20 17:02:16
  */
 import React, { Component } from "react";
 import style from "./style.css";
 import { Menu, Dropdown, Avatar, message } from "antd";
-import { DownOutlined, LogoutOutlined, SettingOutlined, UserOutlined } from "@ant-design/icons";
+import { DownOutlined, LogoutOutlined, SettingOutlined } from "@ant-design/icons";
 import axios from "../../axios";
 
 class SliderHeader extends Component {
@@ -50,8 +50,8 @@ class SliderHeader extends Component {
                 <div>
                     <Dropdown overlay={menu}>
                         <div className={style.dropdownLink}>
-                            {/* <Avatar size={30} src={`${_tuPath}${global.state.user.avatar}`} /> */}
-                            {/* <span className={style.name}>{global.state.user.username}</span> */}
+                            <Avatar size={30} src={`${_tuPath}${this.props.user.avatar}`} />
+                            <span className={style.name}>{this.props.user.username}</span>
                             <DownOutlined />
                         </div>
                     </Dropdown>

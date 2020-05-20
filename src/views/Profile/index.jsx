@@ -3,9 +3,10 @@
  * @Autor: bin
  * @Date: 2020-05-18 16:38:20
  * @LastEditors: bin
- * @LastEditTime: 2020-05-19 17:07:29
+ * @LastEditTime: 2020-05-20 17:45:19
  */
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Avatar, Form, Input, Button, Row, Col, DatePicker } from "antd";
 import style from "./style.css";
 
@@ -14,17 +15,18 @@ class Profile extends Component {
         console.log(values);
     };
     render() {
+        const { user } = this.props;
         return (
             <Row gutter={[32, 20]}>
                 <Col span={10}>
                     <Form layout="vertical" className={style.form} onFinish={this.onFinish}>
                         <Form.Item className={style.avatar}>
-                            {/* <Avatar size={180} src={`${_tuPath}${global.state.user.avatar}`} /> */}
+                            <Avatar size={180} src={`${_tuPath}${user.avatar}`} />
                         </Form.Item>
                         <Form.Item
                             name="username"
                             label="昵称"
-                            // initialValue={global.state.user.username}
+                            initialValue={user.username}
                             rules={[{ required: true, message: "请输入昵称!" }]}
                         >
                             <Input placeholder="输入昵称" />
@@ -44,4 +46,10 @@ class Profile extends Component {
     }
 }
 
-export default Profile;
+const mapStateToProps = state => {
+    return {
+        user: state.user
+    };
+};
+
+export default connect(mapStateToProps)(Profile);

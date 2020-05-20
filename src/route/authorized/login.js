@@ -3,15 +3,14 @@
  * @Autor: bin
  * @Date: 2020-05-14 15:48:54
  * @LastEditors: bin
- * @LastEditTime: 2020-05-19 18:43:50
+ * @LastEditTime: 2020-05-20 17:27:23
  */
 
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import axios from "../../axios";
 import { addUser } from "../../actions";
 
-const Login = Comp => {
+export default (Comp, dispatch) => {
     return class ConvertComp extends Component {
         state = {
             login: false
@@ -20,6 +19,8 @@ const Login = Comp => {
             axios.userInfo().then(response => {
                 //登录状态返回用户信息
                 if (response.code == 200) {
+                    // 发起添加用户信息action
+                    dispatch(addUser(response.data));
                     this.setState({
                         login: true
                     });
@@ -39,4 +40,3 @@ const Login = Comp => {
         }
     };
 };
-export default connect()(Login);

@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2020-05-19 16:54:02
  * @LastEditors: bin
- * @LastEditTime: 2020-05-19 17:24:02
+ * @LastEditTime: 2020-05-20 15:11:24
  */
 import { combineReducers } from "redux";
 import user from "./user";
