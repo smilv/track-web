@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2019-12-25 16:56:36
  * @LastEditors: bin
- * @LastEditTime: 2020-05-14 15:37:12
+ * @LastEditTime: 2020-06-04 16:18:25
  */
 import axios from "axios";
 const instance = axios.create({
@@ -32,6 +32,10 @@ export default {
     //获取用户信息
     userInfo: () => {
         return instance.post(_apiPath + "/user/info");
+    },
+    //更新用户信息
+    userUpdate: data => {
+        return instance.post(_apiPath + "/user/update", data);
     },
     //登录
     login: data => {
