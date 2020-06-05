@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2019-12-25 16:56:36
  * @LastEditors: bin
- * @LastEditTime: 2020-06-04 16:18:25
+ * @LastEditTime: 2020-06-05 16:29:47
  */
 import axios from "axios";
 const instance = axios.create({
@@ -52,5 +52,9 @@ export default {
     //获取统计pv/uv/ip
     trackCount: data => {
         return instance.post(_apiPath + "/track/getCount", data);
+    },
+    //上传图片
+    uploadImg: data => {
+        return instance.post(_apiPath + "/upload", data);
     }
 };
