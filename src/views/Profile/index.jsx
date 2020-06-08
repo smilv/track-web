@@ -3,26 +3,37 @@
  * @Autor: bin
  * @Date: 2020-05-18 16:38:20
  * @LastEditors: bin
- * @LastEditTime: 2020-06-05 19:21:40
+ * @LastEditTime: 2020-06-08 19:07:11
  */
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Avatar, Form, Input, Button, Row, Col, DatePicker, Upload, message, Modal } from "antd";
+import { Avatar, Form, Input, Button, Row, Col, DatePicker, Upload, message } from "antd";
 import ImgCrop from "antd-img-crop";
 import moment from "moment";
 import lrz from "lrz";
 import style from "./style.css";
 import axios from "../../axios";
+import { addUser } from "../../actions";
 
 class Profile extends Component {
+    state = {
+        avatar: this.props.user.avatar
+    };
     onFinish = values => {
         let birthday = values.birthday ? moment(values.birthday).valueOf() : null;
         axios
             .userUpdate({
+                avatar: this.state.avatar,
                 username: values.username,
                 birthday: birthday
             })
-            .then(response => {});
+            .then(response => {
+                if (response.code == 200) {
+                    message.success("更新成功");
+                    // 发起添加用户信息action
+                    this.props.dispatch(addUser(response.data));
+                }
+            });
     };
     // 出生日期不可选大于今天后的日期
     disabledDate(current) {
@@ -63,7 +74,13 @@ class Profile extends Component {
         const formData = new FormData();
         formData.append("folder", "avatar");
         formData.append("file", option.file, option.file.name);
-        axios.uploadImg(formData).then(response => {});
+        axios.uploadImg(formData).then(response => {
+            if (response.code == 200) {
+                this.setState({
+                    avatar: response.data
+                });
+            }
+        });
     };
     render() {
         const { user } = this.props;
@@ -79,7 +96,7 @@ class Profile extends Component {
                         <Form.Item className={style.avatar}>
                             <ImgCrop rotate>
                                 <Upload showUploadList={false} customRequest={this.customRequest} beforeUpload={this.beforeUpload}>
-                                    <Avatar size={180} className={style.avatarImg} src={`${_tuPath}${user.avatar}`} />
+                                    <Avatar size={180} className={style.avatarImg} src={`${_tuPath}${this.state.avatar}`} />
                                 </Upload>
                             </ImgCrop>
                         </Form.Item>
