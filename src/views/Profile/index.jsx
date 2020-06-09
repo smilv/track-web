@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2020-05-18 16:38:20
  * @LastEditors: bin
- * @LastEditTime: 2020-06-08 19:07:11
+ * @LastEditTime: 2020-06-09 10:41:53
  */
 import React, { Component } from "react";
 import { connect } from "react-redux";
@@ -19,6 +19,7 @@ class Profile extends Component {
     state = {
         avatar: this.props.user.avatar
     };
+    // 更新
     onFinish = values => {
         let birthday = values.birthday ? moment(values.birthday).valueOf() : null;
         axios
@@ -31,7 +32,7 @@ class Profile extends Component {
                 if (response.code == 200) {
                     message.success("更新成功");
                     // 发起添加用户信息action
-                    this.props.dispatch(addUser(response.data));
+                    this.props.updateUser(response.data);
                 }
             });
     };
@@ -129,4 +130,13 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(Profile);
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+        updateUser: data => dispatch(addUser(data))
+    };
+};
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Profile);

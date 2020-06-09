@@ -3,13 +3,9 @@
  * @Autor: bin
  * @Date: 2020-05-19 16:54:12
  * @LastEditors: bin
- * @LastEditTime: 2020-06-08 19:08:10
+ * @LastEditTime: 2020-06-09 10:28:52
  */
 
 export function addUser(data) {
     return { type: "ADD_USER", data };
-}
-
-export function updateUser(data) {
-    return { type: "UPDATE_USER", data };
 }
