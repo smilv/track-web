@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2020-05-06 16:03:33
  * @LastEditors: bin
- * @LastEditTime: 2020-05-19 15:14:11
+ * @LastEditTime: 2020-06-09 17:07:11
  */
 import React, { Component } from "react";
 import style from "./style.css";
@@ -22,7 +22,7 @@ class Register extends Component {
             .then(
                 response => {
                     // 注册成功去登录
-                    message.success("注册成功", 1, () => {
+                    message.success("注册成功", 2, () => {
                         this.login(values);
                     });
                 },
@@ -49,13 +49,24 @@ class Register extends Component {
                 <h3 className={style.title}>注册</h3>
                 <Form name="normal_login" className="login-form" onFinish={this.onFinish}>
                     <Form.Item name="mobile" rules={[{ pattern: regex.mobile, required: true, message: "请输入手机号!" }]}>
-                        <Input size="large" prefix={<UserOutlined className="site-form-item-icon" />} placeholder="手机号" />
+                        <Input
+                            size="large"
+                            prefix={<UserOutlined className="site-form-item-icon" />}
+                            placeholder="手机号"
+                            autocomplete="new-password"
+                        />
                     </Form.Item>
                     <Form.Item
                         name="password"
                         rules={[{ pattern: regex.password, required: true, message: "请输入数字、字母组成的6-20位密码!" }]}
                     >
-                        <Input size="large" prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="密码" />
+                        <Input
+                            size="large"
+                            prefix={<LockOutlined className="site-form-item-icon" />}
+                            type="password"
+                            placeholder="密码"
+                            autocomplete="new-password"
+                        />
                     </Form.Item>
                     <Form.Item
                         name="confirmPassword"

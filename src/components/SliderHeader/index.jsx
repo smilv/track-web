@@ -18,7 +18,7 @@ class SliderHeader extends Component {
     logout = () => {
         axios.logout().then(response => {
             if (response.code == 200) {
-                message.success("退出成功", 1, () => {
+                message.success("退出成功", 2, () => {
                     window.location.href = "/login";
                 });
             } else {
