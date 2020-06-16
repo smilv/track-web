@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2020-04-24 14:01:54
  * @LastEditors: bin
- * @LastEditTime: 2020-05-06 17:50:24
+ * @LastEditTime: 2020-06-16 17:23:35
  */
 import React, { Component } from "react";
 import { Cascader, Row, Col, DatePicker, Button } from "antd";
@@ -27,6 +27,20 @@ const options = [
             {
                 value: "mine_index",
                 label: "首页"
+            },
+            {
+                value: "mine_class",
+                label: "课程"
+            }
+        ]
+    },
+    {
+        value: "list",
+        label: "sku",
+        children: [
+            {
+                value: "list_index",
+                label: "首页"
             }
         ]
     }
@@ -39,6 +53,7 @@ class Track extends Component {
             queryLoading: true //统计查询按钮状态
         };
         this.year = moment().format("YYYY"); //初始当前年份
+        this.position = ["mine", "mine_index"];
     }
 
     componentDidMount() {
@@ -49,7 +64,7 @@ class Track extends Component {
      */
     trackQuery() {
         //获取接口数据
-        axios.trackCount({ year: this.year }).then(response => {
+        axios.trackCount({ year: this.year, position: this.position[1] }).then(response => {
             if (response.code == 200) {
                 this.setOption(response.data, [["pvChart", "浏览量", "pv"], ["uvChart", "独立访客", "uv"], ["ipChart", "独立IP数", "ip"]]);
             }
@@ -98,7 +113,12 @@ class Track extends Component {
             });
         });
     }
-    onChange = () => {};
+    /**
+     * @description: 位置选择
+     */
+    positionChange = value => {
+        this.position = value;
+    };
     /**
      * 选择年份
      * @param {*} value
@@ -123,8 +143,8 @@ class Track extends Component {
                             <span className={style.cho}>访问页面：</span>
                             <Cascader
                                 options={options}
-                                defaultValue={["mine", "mine_index"]}
-                                onChange={this.onChange}
+                                defaultValue={this.position}
+                                onChange={this.positionChange}
                                 placeholder="请选择"
                                 allowClear={false}
                             />

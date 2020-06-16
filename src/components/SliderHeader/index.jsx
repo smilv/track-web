@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2020-04-23 15:48:38
  * @LastEditors: bin
- * @LastEditTime: 2020-05-20 17:02:16
+ * @LastEditTime: 2020-06-16 14:33:31
  */
 import React, { Component } from "react";
 import style from "./style.css";
@@ -19,7 +19,7 @@ class SliderHeader extends Component {
         axios.logout().then(response => {
             if (response.code == 200) {
                 message.success("退出成功", 2, () => {
-                    window.location.href = "/login";
+                    window.location.href = `/login?url=${encodeURIComponent(window.location.href)}`;
                 });
             } else {
                 message.success("退出失败");

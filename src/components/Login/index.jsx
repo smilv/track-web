@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2020-05-06 14:31:33
  * @LastEditors: bin
- * @LastEditTime: 2020-05-14 15:39:52
+ * @LastEditTime: 2020-06-16 14:32:24
  */
 import React, { Component } from "react";
 import style from "./style.css";
@@ -11,6 +11,7 @@ import { Form, Input, Button } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import axios from "../../axios";
 import regex from "../../utils/regex";
+import tools from "../../utils/tools";
 
 class Login extends Component {
     state = {
@@ -24,7 +25,7 @@ class Login extends Component {
             })
             .then(response => {
                 if (response.code == 200) {
-                    window.location.href = "/";
+                    window.location.href = tools.getUrlParam("url") || "/";
                 } else if (response.code == 5004) {
                     //用户不存在
                     this.setState({

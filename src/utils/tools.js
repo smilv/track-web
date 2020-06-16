@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2019-12-25 16:56:36
  * @LastEditors: bin
- * @LastEditTime: 2020-05-06 17:49:42
+ * @LastEditTime: 2020-06-16 14:31:29
  */
 module.exports = {
     /**
@@ -50,5 +50,15 @@ module.exports = {
             }
         }
         return fmt;
+    },
+    //获取URL参数
+    getUrlParam(name) {
+        let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+        let r = window.location.search.substr(1).match(reg); //匹配目标参数
+        if (r != null) {
+            return unescape(r[2]);
+        } else {
+            return null;
+        }
     }
 };

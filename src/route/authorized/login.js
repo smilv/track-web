@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2020-05-14 15:48:54
  * @LastEditors: bin
- * @LastEditTime: 2020-05-20 17:27:23
+ * @LastEditTime: 2020-06-16 14:36:05
  */
 
 import React, { Component } from "react";
@@ -26,7 +26,7 @@ export default (Comp, dispatch) => {
                     });
                 } else {
                     //未登录跳转登录
-                    window.location.href = "/login";
+                    window.location.href = `/login?url=${encodeURIComponent(window.location.href)}`;
                 }
             });
         }
