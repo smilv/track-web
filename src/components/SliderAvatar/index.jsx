@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2020-04-23 14:18:26
  * @LastEditors: bin
- * @LastEditTime: 2020-05-20 17:20:00
+ * @LastEditTime: 2020-06-22 17:24:02
  */
 import React, { Component } from "react";
 import { Avatar } from "antd";
@@ -13,6 +13,7 @@ class SliderAvatar extends Component {
     render() {
         return (
             <div className={style.container}>
+                {this.props.user.isBirthday && <img className={style.crown} src={require("../../assets/img/crown.png")} alt="" />}
                 <Avatar size={80} src={`${_tuPath}${this.props.user.avatar}`} />
                 <h3>{this.props.user.username}</h3>
                 <p>管理员</p>

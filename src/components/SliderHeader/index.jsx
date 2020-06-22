@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2020-04-23 15:48:38
  * @LastEditors: bin
- * @LastEditTime: 2020-06-16 14:33:31
+ * @LastEditTime: 2020-06-22 17:23:49
  */
 import React, { Component } from "react";
 import style from "./style.css";
@@ -50,6 +50,9 @@ class SliderHeader extends Component {
                 <div>
                     <Dropdown overlay={menu}>
                         <div className={style.dropdownLink}>
+                            {this.props.user.isBirthday && (
+                                <img className={style.crown} src={require("../../assets/img/crown.png")} alt="" />
+                            )}
                             <Avatar size={30} src={`${_tuPath}${this.props.user.avatar}`} />
                             <span className={style.name}>{this.props.user.username}</span>
                             <DownOutlined />

@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2019-12-25 16:56:36
  * @LastEditors: bin
- * @LastEditTime: 2020-05-12 20:25:05
+ * @LastEditTime: 2020-06-18 11:18:08
  */
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -85,5 +85,10 @@ module.exports = {
         // host: "172.16.20.98",
         port: 8089,
         open: true
+        // proxy: {
+        //     "/user": {
+        //         target: "http://localhost:3000/"
+        //     }
+        // }
     }
 };

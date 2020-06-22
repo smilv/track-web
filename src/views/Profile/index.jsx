@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2020-05-18 16:38:20
  * @LastEditors: bin
- * @LastEditTime: 2020-06-09 10:41:53
+ * @LastEditTime: 2020-06-22 16:30:57
  */
 import React, { Component } from "react";
 import { connect } from "react-redux";
@@ -31,6 +31,11 @@ class Profile extends Component {
             .then(response => {
                 if (response.code == 200) {
                     message.success("更新成功");
+                    if (response.data.birthday) {
+                        // 今日是否是生日
+                        response.data.isBirthday =
+                            moment(response.data.birthday).format("MM-DD") == moment().format("MM-DD") ? true : false;
+                    }
                     // 发起添加用户信息action
                     this.props.updateUser(response.data);
                 }
