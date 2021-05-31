@@ -3,7 +3,7 @@
  * @Autor: bin
  * @Date: 2020-05-06 16:03:33
  * @LastEditors: bin
- * @LastEditTime: 2020-06-09 17:07:11
+ * @LastEditTime: 2021-05-31 19:58:44
  */
 import React, { Component } from "react";
 import style from "./style.css";
@@ -53,7 +53,7 @@ class Register extends Component {
                             size="large"
                             prefix={<UserOutlined className="site-form-item-icon" />}
                             placeholder="手机号"
-                            autocomplete="new-password"
+                            autoComplete="new-password"
                         />
                     </Form.Item>
                     <Form.Item
@@ -65,7 +65,7 @@ class Register extends Component {
                             prefix={<LockOutlined className="site-form-item-icon" />}
                             type="password"
                             placeholder="密码"
-                            autocomplete="new-password"
+                            autoComplete="new-password"
                         />
                     </Form.Item>
                     <Form.Item
