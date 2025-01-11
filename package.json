@@ -4,7 +4,7 @@
     "build": "cross-env BUILD_TYPE=pro webpack --config config/webpack.config.prod.js"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.28.0",
     "antd": "^4.1.4",
     "antd-img-crop": "^3.3.0",
     "echarts": "^4.7.0",
